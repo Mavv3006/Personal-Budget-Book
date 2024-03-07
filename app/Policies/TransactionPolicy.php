@@ -2,7 +2,6 @@
 
 namespace App\Policies;
 
-use App\Models\Account;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;

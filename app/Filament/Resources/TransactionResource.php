@@ -4,19 +4,12 @@ namespace App\Filament\Resources;
 
 use App\Enums\TransactionType;
 use App\Filament\Resources\TransactionResource\Pages;
-use App\Models\Account;
 use App\Models\Transaction;
-use App\Policies\TransactionPolicy;
-use Faker\Provider\Text;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class TransactionResource extends Resource
 {
@@ -62,12 +55,12 @@ class TransactionResource extends Resource
                     ->label('Amount')
                     ->money('EUR'),
                 Tables\Columns\TextColumn::make('type')
-                ->label('Type')
-                ->badge()
-                ->color(fn (TransactionType $state):string=> match ($state){
-                    TransactionType::Income => 'success',
-                    TransactionType::Effort => 'danger',
-                })
+                    ->label('Type')
+                    ->badge()
+                    ->color(fn(TransactionType $state): string => match ($state) {
+                        TransactionType::Income => 'success',
+                        TransactionType::Effort => 'danger',
+                    })
             ])
             ->filters([
                 //
