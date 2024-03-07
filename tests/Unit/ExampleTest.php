@@ -13,4 +13,17 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
+    public function test_bla_bla(): void
+    {
+        $data = [
+            [
+                "name" => "test",
+            ],
+        ];
+
+        $result = $data[0];
+
+        $this->assertEquals(["name" => "test",], $result);
+    }
 }
